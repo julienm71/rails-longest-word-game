@@ -15,11 +15,21 @@ class GamesController < ApplicationController
 
       if json['found'] == true
         @message = "Well done!"
+        @score = @word.length * @word.length
+
+        if session[:score].nil?
+          session[:score] = @score
+        else
+          session[:score] += @score
+        end
+
       else
         @message = "Not an english word."
+        @score = 0
       end
     else
       @message = "Not a word from the given letters."
+      @score = 0
     end
   end
 end

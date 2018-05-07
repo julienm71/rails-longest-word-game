@@ -1,2 +1,10 @@
-<%= @message %>
-<%= link_to "Play again ?", new_path %>
+<div style="padding:10px;">
+  <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%= @message %></div>
+    <div class="card-body">
+      <h5 class="card-title">Round score: <%= @score %></h5>
+      <p class="card-text">Total score: <%= session[:score] %></p>
+      <%= link_to "Play again ?", new_path %>
+    </div>
+  </div>
+</div>
